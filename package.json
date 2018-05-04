@@ -1,0 +1,27 @@
+{
+  "name": "ltd-404",
+  "version": "1.0.0",
+  "description": "404 status page for LSST the Docs.",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsst-sqre/ltd-404.git"
+  },
+  "author": "Association of Universities for Research in Astronomy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lsst-sqre/ltd-404/issues"
+  },
+  "homepage": "https://github.com/lsst-sqre/ltd-404#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "minimist": "^1.2.0"
+  }
+}
