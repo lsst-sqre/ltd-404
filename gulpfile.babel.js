@@ -1,5 +1,6 @@
 import cleanCSS from 'gulp-clean-css';
 import gulp from 'gulp';
+import gulpInlineSource from 'gulp-inline-source';
 import minimist from 'minimist';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
@@ -53,6 +54,19 @@ const sassTask = () => {
 
 };
 gulp.task('sass', sassTask);
+
+/*
+ * gulp html
+ * Inline assets into the deployable HTML.
+ *
+ * link and script tags need an 'inline' attribute to be inlined.
+ * https://github.com/fmal/gulp-inline-source
+ */
+export const html = () => {
+  return gulp.src('404.html')
+    .pipe(gulpInlineSource())
+    .pipe(gulp.dest('_build'));
+};
 
 /*
  * gulp
