@@ -1,3 +1,4 @@
+import browserSync from 'browser-sync';
 import cleanCSS from 'gulp-clean-css';
 import gulp from 'gulp';
 import gulpInlineSource from 'gulp-inline-source';
@@ -49,7 +50,8 @@ const sassTask = () => {
     stream.pipe(sourcemaps.write());
   }
 
-  stream.pipe(gulp.dest('.'));
+  stream.pipe(gulp.dest('.'))
+    .pipe(browserSync.stream());
   return stream;
 
 };
@@ -69,7 +71,27 @@ export const html = () => {
 };
 
 /*
+ * gulp watch
+ * Watch for changes, re-compile the site, and refresh browser-sync.
+ *
+ * This is only useful for development. For production, use `gulp html`
+ * to build the fully-packaged 404 page.
+ */
+const watchTask = () => {
+  browserSync.init({
+    server: {
+      baseDir: './',
+      index: '404.html'
+    }
+  });
+
+  gulp.watch("styles.scss", ['sass']);
+  gulp.watch("404.html").on('change', browserSync.reload);
+};
+gulp.task('watch', watchTask);
+
+/*
  * gulp
  * Default task.
  */
-export default environment;
+export default watchTask;
