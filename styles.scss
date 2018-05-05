@@ -1,3 +1,97 @@
+// Basic reset ===============================================================
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+p + p, p + table {
+  margin-top: 1em;
+}
+
+// Typography + colour =======================================================
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: slategray;
+}
+
+.c-header-section h1 {
+  font-size: 5rem;
+}
+
+.c-header-section p {
+  font-size: 1.5rem;
+}
+
+.fineprint {
+  font-size: 0.8em;
+  color: #444;
+}
+
+.c-suggestions-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+      padding: 1rem;
+  }
+
+  th {
+    text-align: right;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+
+// Grid layout and containers ================================================
+
+@mixin m-light-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #222;
+}
+
+@mixin m-dark-card {
+  color: white;
+}
+
+.c-container {
+  max-width: 600px;
+  min-height: 100vh;
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: auto 0.2fr auto auto 1fr auto;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-header-section {
+  @include m-dark-card;
+  grid-row: 1;
+  text-align: center;
+  padding: 5px;
+}
+
+.c-suggestion-section {
+  @include m-light-card;
+  grid-row: 3;
+  padding: 5px;
+}
+
+.c-reporting-section {
+  @include m-light-card;
+  grid-row: 4;
+  padding: 5px;
+}
+
+.c-footer-section {
+  @include m-light-card;
+  grid-row: -1;
+  padding: 5px;
 }
