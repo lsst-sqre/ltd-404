@@ -22,7 +22,7 @@ const cleanCssConfig = {
 
   prod: {
     compatibility: '*',
-    level: 2,
+    level: 2
   }
 };
 
@@ -37,7 +37,8 @@ export const environment = () => console.log(`${env}`);
  * Compile the sass
  */
 const sassTask = () => {
-  let stream = gulp.src('styles.scss')
+  let stream = gulp
+    .src('styles.scss')
     // Initialize sourcemaps
     .pipe(sourcemaps.init())
     // Compile sass synchronously
@@ -50,10 +51,8 @@ const sassTask = () => {
     stream.pipe(sourcemaps.write());
   }
 
-  stream.pipe(gulp.dest('.'))
-    .pipe(browserSync.stream());
+  stream.pipe(gulp.dest('.')).pipe(browserSync.stream());
   return stream;
-
 };
 gulp.task('sass', sassTask);
 
@@ -65,7 +64,8 @@ gulp.task('sass', sassTask);
  * https://github.com/fmal/gulp-inline-source
  */
 export const html = () => {
-  return gulp.src('404.html')
+  return gulp
+    .src('404.html')
     .pipe(gulpInlineSource())
     .pipe(gulp.dest('_build'));
 };
@@ -85,8 +85,8 @@ const watchTask = () => {
     }
   });
 
-  gulp.watch("styles.scss", ['sass']);
-  gulp.watch("404.html").on('change', browserSync.reload);
+  gulp.watch('styles.scss', ['sass']);
+  gulp.watch('404.html').on('change', browserSync.reload);
 };
 gulp.task('watch', watchTask);
 
