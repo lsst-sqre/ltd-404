@@ -4,7 +4,10 @@
   "description": "404 status page for LSST the Docs.",
   "main": "gulpfile.babel.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app.js",
+    "pretty": "pretty-quick",
+    "precommit": "pretty-quick --staged"
   },
   "repository": {
     "type": "git",
@@ -22,11 +25,17 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.24.4",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.4",
     "gulp-inline-source": "^3.1.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "minimist": "^1.2.0"
+    "husky": "^0.14.3",
+    "minimist": "^1.2.0",
+    "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1"
   }
 }
