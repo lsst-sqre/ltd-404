@@ -1,0 +1,48 @@
+{
+  "name": "ltd-404",
+  "version": "1.0.0",
+  "description": "404 status page for LSST the Docs.",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app.js",
+    "pretty": "pretty-quick",
+    "precommit": "pretty-quick --staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsst-sqre/ltd-404.git"
+  },
+  "author": "Association of Universities for Research in Astronomy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lsst-sqre/ltd-404/issues"
+  },
+  "homepage": "https://github.com/lsst-sqre/ltd-404#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.24.4",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-inline-source": "^3.1.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-run": "^1.7.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "husky": "^0.14.3",
+    "minimist": "^1.2.0",
+    "prettier": "^1.12.1",
+    "pretty-quick": "^1.4.1",
+    "run-sequence": "^2.2.1",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3"
+  }
+}

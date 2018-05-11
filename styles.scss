@@ -1,0 +1,189 @@
+// Basic reset ===============================================================
+
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+p + p,
+p + table {
+  margin-top: 1em;
+}
+
+// General typography + colour + background ==================================
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  // Create a starfield using radial gradients
+  // http://www.inwebson.com/css3/css3-background-animations/
+  background-color: #111111;
+  background-image: radial-gradient(
+      circle,
+      #ffffff 2px,
+      rgba(248, 255, 128, 0.5) 4px,
+      transparent 20px
+    ),
+    radial-gradient(
+      circle,
+      #ffffff 1px,
+      rgba(255, 186, 170, 0.4) 3px,
+      transparent 15px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 1px,
+      rgba(251, 255, 186, 0.3) 2px,
+      transparent 20px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4),
+      rgba(253, 255, 219, 0.2) 1px,
+      transparent 15px
+    );
+
+  // Background images size
+  background-size: 550px 550px, 350px 350px, 250px 270px, 220px 200px;
+
+  // Background images position
+  background-position: 0 0, 30px 60px, 130px 270px, 70px 150px;
+
+  // Animation
+  animation-name: movement;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+// Animate the starfield
+@keyframes movement {
+  from {
+    background-position: 0 0, 30px 60px, 130px 270px, 70px 150px;
+  }
+  to {
+    background-position: -550px 0, -320px 60px, -120px 270px, -150px 150px;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+a:hover {
+  background: white;
+}
+
+// Header typography =========================================================
+
+.c-header-section h1 {
+  font-size: 5rem;
+  margin: 1rem;
+  color: #f0ca4d;
+  text-shadow: -0.07em 0.07em #324d5c;
+}
+
+.c-header-section p {
+  font-size: 1.5rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+// Suggestions table =========================================================
+
+.c-suggestions-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
+  th {
+    text-align: right;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+
+// Nav list (footer) =========================================================
+
+.c-flex-nav ul {
+  display: flex;
+  align-items: stretch; // Default
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.c-flex-nav li {
+  display: block;
+  flex: 0 1 auto; // Default
+  list-style-type: none;
+}
+
+.c-flex-nav a {
+  padding: 0.5rem;
+}
+
+// Grid layout and containers ================================================
+
+@mixin m-light-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #222;
+}
+
+@mixin m-dark-card {
+  color: white;
+}
+
+.c-container {
+  max-width: 600px;
+  min-height: 100vh;
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: 1fr auto 1fr auto auto 1fr auto;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-header-section {
+  @include m-dark-card;
+  grid-row: 2;
+  text-align: center;
+  padding: 1rem;
+}
+
+.c-suggestion-section {
+  @include m-light-card;
+  grid-row: 4;
+  padding: 1rem;
+}
+
+.c-reporting-section {
+  @include m-light-card;
+  grid-row: 5;
+  padding: 1rem;
+}
+
+.c-footer-section {
+  @include m-light-card;
+  grid-row: -2;
+  padding: 1rem;
+}
