@@ -16,7 +16,54 @@ p + table {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  background-color: slategray;
+
+  background-color: #111111;
+
+  background-image: radial-gradient(
+      circle,
+      #ffffff 2px,
+      rgba(248, 255, 128, 0.5) 4px,
+      transparent 20px
+    ),
+    radial-gradient(
+      circle,
+      #ffffff 1px,
+      rgba(255, 186, 170, 0.4) 3px,
+      transparent 15px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 1px,
+      rgba(251, 255, 186, 0.3) 2px,
+      transparent 20px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4),
+      rgba(253, 255, 219, 0.2) 1px,
+      transparent 15px
+    );
+
+  // Background images size
+  background-size: 550px 550px, 350px 350px, 250px 270px, 220px 200px;
+
+  // Background images position
+  background-position: 0 0, 30px 60px, 130px 270px, 70px 150px;
+
+  // Animation
+  animation-name: movement;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes movement {
+  from {
+    background-position: 0 0, 30px 60px, 130px 270px, 70px 150px;
+  }
+  to {
+    background-position: -550px 0, -320px 60px, -120px 270px, -150px 150px;
+  }
 }
 
 .c-header-section h1 {
@@ -54,7 +101,7 @@ body {
 // Grid layout and containers ================================================
 
 @mixin m-light-card {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #222;
 }
 
