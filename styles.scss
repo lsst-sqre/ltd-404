@@ -18,7 +18,6 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
   background-color: #111111;
-
   background-image: radial-gradient(
       circle,
       #ffffff 2px,
@@ -52,7 +51,7 @@ body {
 
   // Animation
   animation-name: movement;
-  animation-duration: 5s;
+  animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
