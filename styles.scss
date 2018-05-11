@@ -85,7 +85,7 @@ body {
 
   th,
   td {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   th {
@@ -124,23 +124,23 @@ body {
   @include m-dark-card;
   grid-row: 2;
   text-align: center;
-  padding: 5px;
+  padding: 1rem;
 }
 
 .c-suggestion-section {
   @include m-light-card;
   grid-row: 4;
-  padding: 5px;
+  padding: 1rem;
 }
 
 .c-reporting-section {
   @include m-light-card;
   grid-row: 5;
-  padding: 5px;
+  padding: 1rem;
 }
 
 .c-footer-section {
   @include m-light-card;
   grid-row: -2;
-  padding: 5px;
+  padding: 1rem;
 }
