@@ -143,7 +143,7 @@ It isn't deployed from AWS S3 like most LSST the Docs front-end content.
 
 1. Build the page for production::
 
-      gulp build --env prod
+      gulp build
 
    The output is in ``_build/404.html``.
 
@@ -156,6 +156,9 @@ It isn't deployed from AWS S3 like most LSST the Docs front-end content.
 4. Activate the new configuration.
 
 *Background:* `Creating error pages with custom responses <https://docs.fastly.com/guides/basic-configuration/creating-error-pages-with-custom-responses.html>`_ (Fastly docs).
+
+*Note:* Avoid minifying ``404.html``.
+It turns out Webpack's production minification can trip up the VCL in Fastly_.
 
 .. _code-style:
 
