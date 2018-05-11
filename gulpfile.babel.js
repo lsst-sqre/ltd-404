@@ -124,3 +124,19 @@ gulp.task('default', ['js', 'sass', 'watch']);
 gulp.task('build', callback => {
   runSequence('js', 'sass', 'html', callback);
 });
+
+/*
+ * gulp pretty
+ * Run Prettier to autoformat code.
+ */
+export const pretty = () => {
+  return GulpRunner('npm run pretty').exec();
+};
+
+/*
+ * gulp lint
+ * Run ESLint on the JavaScript.
+ */
+export const lint = () => {
+  return GulpRunner('npm run lint').exec();
+};

@@ -114,6 +114,22 @@ Normally you'll only run this command via the default ``gulp`` task.
 
 By default, Browsersync serves your page at https://localhost:3000/.
 
+.. _gulp-pretty:
+
+gulp pretty
+-----------
+
+Automatically format code.
+See `Code style via Prettier <#code-style>`__.
+
+.. _gulp-lint:
+
+gulp lint
+---------
+
+Lint the code for errors and style.
+See `Code linting via ESLint <code-lint>`__.
+
 .. _deployment:
 
 Deployment
@@ -149,7 +165,7 @@ A couple minor exceptions are configured in ``.prettierrc.yaml``.
 
 You can run Prettier two ways:
 
-1. Manually, by running ``npm run pretty``.
+1. Manually, by running `gulp pretty <gulp-pretty>`__.
 2. Automatically, by committing code.
    This is configured as a pre-commit hook in ``package.json``.
 
@@ -164,7 +180,7 @@ Code linting via ESLint
 We use ESLint as a first line of defense for JavaScript code quality.
 You can run ESLint via::
 
-   npm run lint
+   gulp lint
 
 Linting is also done via Travis CI (see ``.travis.yml``).
 
