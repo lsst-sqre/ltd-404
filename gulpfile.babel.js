@@ -5,6 +5,8 @@ import gulpInlineSource from 'gulp-inline-source';
 import minimist from 'minimist';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
+import GulpRunner from 'gulp-run';
+import runSequence from 'run-sequence';
 
 // parse command line options
 // [--env dev (default) | prod]
@@ -57,6 +59,15 @@ const sassTask = () => {
 gulp.task('sass', sassTask);
 
 /*
+ * gulp js
+ * Package and babelize the javascript with webpack.
+ */
+const jsTask = () => {
+  return GulpRunner('./node_modules/.bin/webpack').exec();
+};
+gulp.task('js', jsTask);
+
+/*
  * gulp html
  * Inline assets into the deployable HTML.
  *
@@ -64,10 +75,14 @@ gulp.task('sass', sassTask);
  * https://github.com/fmal/gulp-inline-source
  */
 export const html = () => {
-  return gulp
-    .src('404.html')
-    .pipe(gulpInlineSource())
-    .pipe(gulp.dest('_build'));
+  return (
+    gulp
+      .src('404.html')
+      // I was getting uglify-js errors, and since webpack is already compressing
+      // the content, there's no need for inline-source to compress too.
+      .pipe(gulpInlineSource({ compress: false }))
+      .pipe(gulp.dest('_build'))
+  );
 };
 
 /*
@@ -87,11 +102,21 @@ const watchTask = () => {
 
   gulp.watch('styles.scss', ['sass']);
   gulp.watch('404.html').on('change', browserSync.reload);
+  gulp.watch('app.bundle.js').on('change', browserSync.reload);
 };
 gulp.task('watch', watchTask);
 
 /*
  * gulp
- * Default task.
+ * Default task that compiles site and launches a development server with
+ * Browsersync.
  */
-export default watchTask;
+gulp.task('default', ['js', 'sass', 'watch']);
+
+/*
+ * gulp build
+ * Build site for production
+ */
+gulp.task('build', callback => {
+  runSequence('js', 'sass', 'html', callback);
+});
