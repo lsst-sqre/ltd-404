@@ -2,6 +2,9 @@
 LTD 404
 #######
 
+.. image:: https://img.shields.io/travis/lsst-sqre/ltd-404.svg
+   :alt: Travis build status
+
 **Error page for LSST the Docs, served at the edge by the Fastly CDN.**
 
 This page is shown by the Fastly_ CDN when a user requests a page that doesn't exist on the backend (S3).
