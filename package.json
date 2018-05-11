@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/lsst-sqre/ltd-404#readme",
   "devDependencies": {
+    "autoprefixer": "^8.4.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -32,6 +33,7 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.4",
     "gulp-inline-source": "^3.1.0",
+    "gulp-postcss": "^7.0.1",
     "gulp-run": "^1.7.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",

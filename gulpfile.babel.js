@@ -7,6 +7,8 @@ import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import GulpRunner from 'gulp-run';
 import runSequence from 'run-sequence';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
 
 // parse command line options
 // [--env dev (default) | prod]
@@ -45,6 +47,8 @@ const sassTask = () => {
     .pipe(sourcemaps.init())
     // Compile sass synchronously
     .pipe(sass.sync().on('error', sass.logError))
+    // Autoprefix
+    .pipe(postcss([autoprefixer()]))
     // Clean CSS
     .pipe(cleanCSS(cleanCssConfig[env]));
 
